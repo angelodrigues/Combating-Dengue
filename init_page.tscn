@@ -1,0 +1,133 @@
+[gd_scene format=3 uid="uid://2ctg4mvqb0ho"]
+
+[ext_resource type="Texture2D" uid="uid://dhuurnuat038j" path="res://bg_imgs/PNG/summer6/1.png" id="1_r5fwe"]
+[ext_resource type="Shader" uid="uid://bowve2quqmqi" path="res://shaders/moviment_Clunds.gdshader" id="2_k4bcb"]
+[ext_resource type="Texture2D" uid="uid://dfvuco1triuws" path="res://bg_imgs/PNG/summer 2/4.png" id="3_4yx2x"]
+[ext_resource type="Texture2D" uid="uid://djh1d0wpgj7wp" path="res://bg_imgs/PNG/summer7/4.png" id="4_a107c"]
+[ext_resource type="Texture2D" uid="uid://dm3w4jkqlg4y1" path="res://bg_imgs/PNG/summer 4/3.png" id="5_05ufr"]
+[ext_resource type="Texture2D" uid="uid://dowy768gpthc2" path="res://bg_imgs/PNG/summer6/5.png" id="6_uyhcm"]
+[ext_resource type="Script" uid="uid://bnsx0umxveviv" path="res://start_btn.gd" id="7_mnclw"]
+[ext_resource type="Texture2D" uid="uid://b47grxsqavmu8" path="res://Pixel UI pack 2/Ram Buttons (1).png" id="8_stcma"]
+[ext_resource type="AudioStream" uid="uid://ffxsgvdm0504" path="res://sounds/bg_music.wav.ogg" id="9_m7o5o"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k3qwu"]
+shader = ExtResource("2_k4bcb")
+shader_parameter/move_speed = 0.04
+
+[sub_resource type="LabelSettings" id="LabelSettings_kru1u"]
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_fg07q"]
+font_size = 60
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 20
+shadow_color = Color(1, 0.403922, 0.0431373, 1)
+
+[node name="InitPage" type="Control" unique_id=1732664758]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BG" type="ParallaxBackground" parent="." unique_id=3357754]
+
+[node name="5" type="ParallaxLayer" parent="BG" unique_id=537781095]
+
+[node name="Sprite2D" type="Sprite2D" parent="BG/5" unique_id=1181548918]
+scale = Vector2(2.22049, 2.36111)
+texture = ExtResource("1_r5fwe")
+centered = false
+
+[node name="4" type="ParallaxLayer" parent="BG" unique_id=1929794959]
+
+[node name="Sprite2D" type="Sprite2D" parent="BG/4" unique_id=1243436201]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_k3qwu")
+position = Vector2(-1, 0)
+scale = Vector2(2.22049, 2.34259)
+texture = ExtResource("3_4yx2x")
+centered = false
+
+[node name="3" type="ParallaxLayer" parent="BG" unique_id=1891279165]
+
+[node name="Sprite2D" type="Sprite2D" parent="BG/3" unique_id=1163097350]
+scale = Vector2(2.21701, 2.35494)
+texture = ExtResource("4_a107c")
+centered = false
+
+[node name="2" type="ParallaxLayer" parent="BG" unique_id=504019894]
+
+[node name="Sprite2D" type="Sprite2D" parent="BG/2" unique_id=1723368977]
+scale = Vector2(2.21701, 2.35185)
+texture = ExtResource("5_05ufr")
+centered = false
+
+[node name="1" type="ParallaxLayer" parent="BG" unique_id=30605447]
+
+[node name="Sprite2D" type="Sprite2D" parent="BG/1" unique_id=818053095]
+scale = Vector2(2.22049, 2.34259)
+texture = ExtResource("6_uyhcm")
+centered = false
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=301376852]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=785943168]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=181343238]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=743587959]
+layout_mode = 2
+
+[node name="start_btn" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/TextureRect" unique_id=1512401453]
+layout_mode = 0
+offset_left = 620.0
+offset_top = 415.0
+offset_right = 698.0
+offset_bottom = 438.0
+script = ExtResource("7_mnclw")
+
+[node name="btn_start" type="Sprite2D" parent="MarginContainer/HBoxContainer/VBoxContainer/TextureRect/start_btn" unique_id=278996550]
+position = Vector2(42.5937, 14.625)
+scale = Vector2(1.48144, 1.25)
+texture = ExtResource("8_stcma")
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/TextureRect/start_btn" unique_id=730128414]
+layout_mode = 0
+offset_left = 13.0
+offset_top = -5.0
+offset_right = 73.0
+offset_bottom = 23.0
+text = "START"
+label_settings = SubResource("LabelSettings_kru1u")
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/TextureRect" unique_id=1769525386]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 468.0
+offset_top = 218.0
+offset_right = 850.0
+offset_bottom = 301.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Nature Clean"
+label_settings = SubResource("LabelSettings_fg07q")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="MarginContainer" unique_id=597299494]
+stream = ExtResource("9_m7o5o")
+autoplay = true
+
+[connection signal="mouse_entered" from="MarginContainer/HBoxContainer/VBoxContainer/TextureRect/start_btn" to="MarginContainer/HBoxContainer/VBoxContainer/TextureRect/start_btn" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/HBoxContainer/VBoxContainer/TextureRect/start_btn" to="MarginContainer/HBoxContainer/VBoxContainer/TextureRect/start_btn" method="_on_mouse_exited"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/TextureRect/start_btn" to="MarginContainer/HBoxContainer/VBoxContainer/TextureRect/start_btn" method="_on_pressed"]
