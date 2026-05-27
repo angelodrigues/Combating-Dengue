@@ -1,6 +1,11 @@
 extends Node2D
 
 var label = Label 
+var spawn_timer: float = 0.0
+var fumace_timer: float = 0.0
+@onready var cat_scene = preload("res://animals/cat.tscn")
+@onready var fumace_scene = preload("res://trashs/fumace.tscn")
+@onready var first_level_node = $first_level
 @export var time = Timer
 @export var redclr : Color
 @export var origClr : Color
@@ -36,6 +41,23 @@ func _process(delta: float) -> void:
 		player_light.visible = true
 	else:
 		player_light.visible = false
+		
+	# Lógica para aumentar o número de mosquitos com o tempo da fase
+	var spawn_interval = max(1.0, progress * 8.0) # de 8s até 1s no final
+	spawn_timer += delta
+	if spawn_timer >= spawn_interval:
+		spawn_timer = 0.0
+		var new_mosquito = cat_scene.instantiate()
+		new_mosquito.position = Vector2(randf_range(0, 700), randf_range(0, 500))
+		first_level_node.add_child(new_mosquito)
+		
+	# Lógica para aparecer o Fumacê de tempos em tempos (a cada 15 segundos)
+	fumace_timer += delta
+	if fumace_timer >= 15.0:
+		fumace_timer = 0.0
+		var novo_fumace = fumace_scene.instantiate()
+		novo_fumace.position = Vector2(randf_range(50, 650), randf_range(50, 450))
+		first_level_node.add_child(novo_fumace)
 		
 	if time.time_left <= 0.1 && int(hud.score.text) != 7:		
 		get_tree().change_scene_to_file("res://scenes/game_over.tscn")

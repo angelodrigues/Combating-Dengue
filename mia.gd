@@ -4,6 +4,7 @@ class_name Mia
 @export_category("Variables")
 @export var move_speed: float = 128.0
 @export var garbage_count: int = 0  # Quantidade de lixo coletado
+@export var fumace_count: int = 0 # Quantidade de fumacês guardados
 @export var speed_reduction_per_garbage: float = 10.0  # Redução de velocidade por lixo coletado
 @onready var pick_up_effect = $pick_up_effect as AudioStreamPlayer
 @onready var hud = get_node("../../UI/HUD")
@@ -91,4 +92,24 @@ func _input(event):
 		hasGarb = true        
 	if event.is_action_released("pick_up"):        
 		hasGarb = false        
-			
+		
+	# Pressionou a tecla E para ativar o Fumacê
+	if event is InputEventKey and event.pressed and event.keycode == KEY_E and not event.echo:
+		if fumace_count > 0:
+			fumace_count -= 1
+			# Executa o efeito do fumacê:
+			var game_level = get_tree().current_scene
+			if game_level and game_level.has_node("Timer"):
+				var timer = game_level.get_node("Timer")
+				var remaining = timer.time_left
+				timer.start(remaining + 10.0) # Ganha 10 segundos
+				print("Fumacê usado! Ganhou 10s. Fumacês restantes: ", fumace_count)
+				
+			# Destrói os mosquitos no level
+			var first_level = null
+			if game_level:
+				first_level = game_level.get_node_or_null("first_level")
+			if first_level:
+				for child in first_level.get_children():
+					if child.name.begins_with("mosquito") or child.name.begins_with("cat"):
+						child.queue_free()

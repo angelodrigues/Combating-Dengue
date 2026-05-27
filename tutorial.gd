@@ -1,11 +1,13 @@
 extends Node2D
 
 @export var dialogos = [
-	"Este parque era um lugar mágico, cheio de risos e memórias. Mia, ainda criança, vinha aqui com sua avó, que adorava cada canto deste lugar. Mas o tempo passou, e o parque foi abandonado. Agora, Mia está determinada a restaurar o parque e trazer de volta suas melhores lembranças.", 
-	"Use W, A, S, D para mover Mia pelo parque.", 
-	"Aperte F para coletar lixo.",
-	"Mia lembra como o parque era limpo e vibrante. Para restaurá-lo, ela precisa começar pelo básico: recolher o lixo espalhado.",
-	"Agora você sabe o que fazer! Ajude Mia a restaurar o parque e resgatar suas memórias mais preciosas."
+	"Nossa cidade está enfrentando um grande perigo. Os mosquitos da dengue se multiplicam rapidamente, ameaçando a saúde de todos.", 
+	"Eles botam ovos onde você nem imagina. O lixo espalhado pelo mapa acumula água parada, virando o berçário perfeito para o mosquito.",
+	"Sua missão é combater a dengue pela raiz! Use W, A, S, D para se mover.",
+	"Aperte F para recolher o lixo e eliminar os possíveis focos de água parada.",
+	"De tempos em tempos, surgirá um frasco de Fumacê! Pegue-o com a tecla F para guardá-arlo.",
+	"Quando a situação apertar, aperte E para ativar o Fumacê! Ele elimina os mosquitos da tela e te dá mais 10 segundos.",
+	"O tempo corre e os mosquitos roubam seu tempo se encostarem em você! Limpe tudo antes que seja tarde demais."
 ]
 var indice_fala = 0
 

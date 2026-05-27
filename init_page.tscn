@@ -121,7 +121,7 @@ offset_right = 850.0
 offset_bottom = 301.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Nature Clean"
+text = "Combating Dengue"
 label_settings = SubResource("LabelSettings_fg07q")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="MarginContainer" unique_id=597299494]

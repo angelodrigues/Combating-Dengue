@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 ]
+
+[ext_resource type="Script" path="res://trashs/fumace.gd" id="1_3nfpe"]
+[ext_resource type="Texture2D" path="res://trash assets/alcohol 1.png" id="1_npbwk"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_othgs"]
+radius = 9.0
+height = 18.0
+
+[node name="fumace" type="Area2D"]
+collision_layer = 3
+script = ExtResource("1_3nfpe")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, 2.75)
+scale = Vector2(2.0, 2.0)
+texture = ExtResource("1_npbwk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3)
+shape = SubResource("CapsuleShape2D_othgs")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
